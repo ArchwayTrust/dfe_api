@@ -2,7 +2,7 @@
 
 Example PySpark code for extracting data from DfE Data API.
 
-It is recommended this notebook be loaded into Microsoft Fabric. It can however be run locally or in any other spark cluster with miniaml alteration.
+It is recommended this notebook be loaded into Microsoft Fabric. It can however be run locally or in any other spark cluster with minimal alteration.
 
 The code is still in an early stage and currently has no error handling or logging.
 
@@ -26,7 +26,7 @@ print(json.dumps(SetA.data_set_summary_json, indent=4))
 display(SetA.filters_df)
 ```
 
-- Send a queyr:
+- Send a query:
 
 ```
 data = {
