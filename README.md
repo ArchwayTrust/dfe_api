@@ -8,6 +8,17 @@ The code is still in an early stage and currently has no error handling or loggi
 
 Be careful with test set B. It will take a long while to run (20-30 mins). Would suggest a tighter query is required. Could however improve the code so multiple requests happen in parallel.
 
+The output dataframe should be very much considered a raw/bronze layer in terms of a datalake. While it does join into the metadata so output is human readable, the code is written to handle any DfE endpoint so the resulting dataframe outputs values as strings in a key value normalised form. Along the lines of:
+
+| Metadata Columns | Indicator | Value |
+|--|--|--|
+| Secondary  | Sessions Possible    | 50000  |
+| Primary | Sessions Possible    | 10000  |
+| Secondary  | Sessions Absent    | 1000  |
+| Primary | Sessions Absent    | 500  |
+
+As you merge into a base/silver layer you would likey further process and set it up to do a delta load for the bigger datasets.
+
 ## Example Usage
 All the code is in a class which abstracts the complexity of the API away.
 
